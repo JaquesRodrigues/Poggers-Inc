@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wrapper {
+    width: min(900px, 100% - 3rem);
+    margin-inline: auto;
+    width: 60%;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    color: #fff;
+    background: #323232;
+    width: 100%;
+}
+
+caption {
+    color: #fff;
+    background: #000;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+th,
+td,
+caption {
+    padding: 1rem;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+th {
+    background: hsl(0 0% 0% / .5);
+}
+
+tr:nth-child(2n) {
+    background: hsl(0 0% 0% / .1);
+}
+
+@media (max-width: 725px) {
+    th {
+        display: none;
+    }
+
+    td {
+        display: block;
+        padding: .75rem 1rem;
+    }
+
+    td::before {
+        content: attr(data-cell) ': ';
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+}
+
