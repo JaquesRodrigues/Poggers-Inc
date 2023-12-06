@@ -38,6 +38,9 @@ th {
 th {
     background: hsl(0 0% 0% / .5);
 }
+th:hover {
+    text-decoration: underline;
+}
 
 tr:nth-child(2n) {
     background: hsl(0 0% 0% / .1);
@@ -60,3 +63,30 @@ tr:nth-child(2n) {
     }
 }
 
+.infoBox {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  td:hover::before {
+    content: 'Lorem Impsum sit dolor'; /* Exibe o conteúdo do atributo data-info */
+    position: absolute;
+    background-color: hsl(0, 9%, 10%);
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    /* Define a posição do tooltip */
+    top: calc(50% - 5px); /* Coloca o tooltip abaixo do elemento */
+    left: 0;
+    display: none;
+  }
+
+  td:hover::before {
+    display: block; /* Exibe o tooltip quando o mouse está sobre o elemento */
+  }

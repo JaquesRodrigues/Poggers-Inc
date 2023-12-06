@@ -5,16 +5,15 @@ function Ativos() {
         return Math.floor(Math.random() * 500);
     }
 
+    const ativosNome = ["Notebook", "Teclados" , "Mouse", "Monitor", "Id"];
+    const ativosNomeLista = ativosNome.map(ativos => <th>{ativos}</th>)
+
     return(
         <div className="wrapper">
             <table>
                 <caption>Gestão de Ativos</caption>
                 <tr>
-                    <th>Notebook</th>
-                    <th>Teclado</th>
-                    <th>Mouse</th>
-                    <th>Monitor</th>
-                    <th>ID</th>
+                    {ativosNomeLista}
                 </tr>
 
                 <tr>
