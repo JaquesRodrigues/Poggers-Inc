@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer components {
+    .sidebar-icon {
+        @apply relative flex items-center justify-center h-12 w-12 my-2 mx-auto shadow-lg p-2 bg-slate-200 text-green-900 hover:bg-green-600
+        hover:text-white rounded-3xl hover:rounded-xl transition-all; 
+    }
+
+    .sidebar-tooltip {
+        @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white bg-gray-900 text-xs font-bold transition-all 
+        duration-100 scale-0 origin-left;
+    }
+}
+
+
+
 .wrapper {
     width: min(900px, 100% - 3rem);
     margin-inline: auto;
@@ -63,30 +79,17 @@ tr:nth-child(2n) {
     }
 }
 
-.infoBox {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-
-  td:hover::before {
-    content: 'Lorem Impsum sit dolor'; /* Exibe o conteúdo do atributo data-info */
+/* td:hover::before {
+    content: 'Lorem Impsum sit dolor'; 
     position: absolute;
     background-color: hsl(0, 9%, 10%);
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 999;
-    /* Define a posição do tooltip */
-    top: calc(50% - 5px); /* Coloca o tooltip abaixo do elemento */
-    left: 0;
     display: none;
   }
 
-  td:hover::before {
-    display: block; /* Exibe o tooltip quando o mouse está sobre o elemento */
-  }
+td:hover::before {
+    display: block;
+  } */

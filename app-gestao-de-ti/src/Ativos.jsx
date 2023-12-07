@@ -5,58 +5,38 @@ function Ativos() {
         return Math.floor(Math.random() * 500);
     }
 
-    const ativosNome = ["Notebook", "Teclados" , "Mouse", "Monitor", "Id"];
-    const ativosNomeLista = ativosNome.map(ativos => <th>{ativos}</th>)
+    const nomeAtivos = ["Notebook", "Teclados" , "Mouse", "Monitor", "Id"];
+    const listaNomeDeAtivos = nomeAtivos.map(ativos => <th>{ativos}</th>)
+    const listaDeAtivos = nomeAtivos.map(ativos => <td data-cell={ativos}>{getRandomNumber()}</td>)
 
     return(
         <div className="wrapper">
             <table>
                 <caption>Gestão de Ativos</caption>
                 <tr>
-                    {ativosNomeLista}
+                    {listaNomeDeAtivos}
                 </tr>
 
                 <tr>
-                    <td data-cell="Notebook">{getRandomNumber()}</td>
-                    <td data-cell="Teclado">{getRandomNumber()}</td>
-                    <td data-cell="Mouse">{getRandomNumber()}</td>
-                    <td data-cell="Monitor">{getRandomNumber()}</td>
-                    <td data-cell="ID">#{getRandomNumber()}</td>
+                    {listaDeAtivos}
                 </tr>
                 <tr>
-                    <td data-cell="Notebook">{getRandomNumber()}</td>
-                    <td data-cell="Teclado">{getRandomNumber()}</td>
-                    <td data-cell="Mouse">{getRandomNumber()}</td>
-                    <td data-cell="Monitor">{getRandomNumber()}</td>
-                    <td data-cell="ID">#{getRandomNumber()}</td>
+                    {listaDeAtivos}
                 </tr>
                 <tr>
-                    <td data-cell="Notebook">{getRandomNumber()}</td>
-                    <td data-cell="Teclado">{getRandomNumber()}</td>
-                    <td data-cell="Mouse">{getRandomNumber()}</td>
-                    <td data-cell="Monitor">{getRandomNumber()}</td>
-                    <td data-cell="ID">#{getRandomNumber()}</td>
+                    {listaDeAtivos}
                 </tr>
                 <tr>
-                    <td data-cell="Notebook">{getRandomNumber()}</td>
-                    <td data-cell="Teclado">{getRandomNumber()}</td>
-                    <td data-cell="Mouse">{getRandomNumber()}</td>
-                    <td data-cell="Monitor">{getRandomNumber()}</td>
-                    <td data-cell="ID">#{getRandomNumber()}</td>
+                    {listaDeAtivos}
                 </tr>
                 <tr>
-                    <td data-cell="Notebook">{getRandomNumber()}</td>
-                    <td data-cell="Teclado">{getRandomNumber()}</td>
-                    <td data-cell="Mouse">{getRandomNumber()}</td>
-                    <td data-cell="Monitor">{getRandomNumber()}</td>
-                    <td data-cell="ID">#{getRandomNumber()}</td>
+                    {listaDeAtivos}
                 </tr>
                 <tr>
-                    <td data-cell="Notebook">{getRandomNumber()}</td>
-                    <td data-cell="Teclado">{getRandomNumber()}</td>
-                    <td data-cell="Mouse">{getRandomNumber()}</td>
-                    <td data-cell="Monitor">{getRandomNumber()}</td>
-                    <td data-cell="ID">#{getRandomNumber()}</td>
+                    {listaDeAtivos}
+                </tr>
+                <tr>
+                    {listaDeAtivos}
                 </tr>
             </table>
         </div>
