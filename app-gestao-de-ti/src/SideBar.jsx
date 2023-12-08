@@ -8,7 +8,7 @@ function SideBar() {
 
     return(
         <div className="flex flex-col fixed top-0 left-0 h-screen w-16 bg-gray-800 text-white">
-            <SideBarIcon img={menuIcon} />
+            <SideBarIcon img={menuIcon} text='Menu de Ativos 📄' />
             <SideBarIcon img={maisIcon} />
             <SideBarIcon img={planilhaIcon} />
             <SideBarIcon img={webChatIcon} />
@@ -18,7 +18,7 @@ function SideBar() {
 
 const SideBarIcon = ({ img, text = "Tooltip 💡" }) => (
     <div className="sidebar-icon group">
-        <img src={img} alt="" />
+        <img src={img} alt= {text} className="cursor-pointer" />
         <span className='sidebar-tooltip group-hover:scale-100'>
             {text}
         </span>

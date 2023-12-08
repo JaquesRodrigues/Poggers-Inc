@@ -1,46 +1,41 @@
+import { v4 as uuidv4 } from 'uuid';
 
 function Ativos() {
+    const nomeAtivos = ["Notebook", "Teclados", "Mouse", "Monitor", "Id"];
+    const keysHeaders = nomeAtivos.map(() => uuidv4());
+    const keysCells = nomeAtivos.map(() => uuidv4());
 
-    function getRandomNumber() {
-        return Math.floor(Math.random() * 500);
-    }
+    const headers = nomeAtivos.map((ativo, index) => (
+        <th key={keysHeaders[index]}>{ativo}</th>
+    ));
 
-    const nomeAtivos = ["Notebook", "Teclados" , "Mouse", "Monitor", "Id"];
-    const listaNomeDeAtivos = nomeAtivos.map(ativos => <th>{ativos}</th>)
-    const listaDeAtivos = nomeAtivos.map(ativos => <td data-cell={ativos}>{getRandomNumber()}</td>)
+    const generateRandomNumbers = (keys) => {
+        return keys.map((key, index) => (
+            <td key={key} data-cell={nomeAtivos[index]}>
+                {Math.floor(Math.random() * (index + 1) * 500)} {/* Gera número baseado no índice */}
+            </td>
+        ));
+    };
 
-    return(
+    const rows = Array.from({ length: 4 }, () => (
+        <tr key={uuidv4()}>
+            {generateRandomNumbers(keysCells)}
+        </tr>
+    ));
+
+    return (
         <div className="wrapper">
             <table>
                 <caption>Gestão de Ativos</caption>
-                <tr>
-                    {listaNomeDeAtivos}
-                </tr>
-
-                <tr>
-                    {listaDeAtivos}
-                </tr>
-                <tr>
-                    {listaDeAtivos}
-                </tr>
-                <tr>
-                    {listaDeAtivos}
-                </tr>
-                <tr>
-                    {listaDeAtivos}
-                </tr>
-                <tr>
-                    {listaDeAtivos}
-                </tr>
-                <tr>
-                    {listaDeAtivos}
-                </tr>
-                <tr>
-                    {listaDeAtivos}
-                </tr>
+                <thead>
+                    <tr>{headers}</tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
             </table>
         </div>
-    )
+    );
 }
 
 export default Ativos;

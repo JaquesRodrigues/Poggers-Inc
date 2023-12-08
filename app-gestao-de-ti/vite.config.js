@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
+import dns from 'dns'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
+dns.setDefaultResultOrder('verbatim')
+
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 8000,
-    host: '127.0.0.1'
+    host: '127.0.0.1',
+    port: 3000
   }
 })

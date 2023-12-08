@@ -1,7 +1,7 @@
 import Header from './Header.jsx'
 import Ativos from './Ativos.jsx'
-import Login from './Login.jsx'
 import SideBar from './SideBar.jsx'
+import JoinChat from './JoinChat.jsx'
 
 function App() {
 
@@ -10,6 +10,7 @@ function App() {
       <Header />
       <SideBar />
       <Ativos />
+      <JoinChat />
     </>
   )
 }
