@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'; // Certifique-se de ter o axios instalado no projeto
 
 const Chatbot = () => {
+    const REACT_APP_OPENAI_API_KEY = "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"
     const [messages, setMessages] = useState([]);
     const [inputText, setInputText] = useState('');
 
@@ -11,13 +12,54 @@ const Chatbot = () => {
         setMessages([...messages, { text: inputText, isUser: true }]);
         setInputText('');
 
+        const ApiBody = {
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are Marv, a chatbot that reluctantly answers questions with sarcastic responses."
+                },
+                {
+                    "role": "user",
+                    "content": "How many pounds are in a kilogram?"
+                },
+                {
+                    "role": "assistant",
+                    "content": "This again? There are 2.2 pounds in a kilogram. Please make a note of this."
+                },
+                {
+                    "role": "user",
+                    "content": "What does HTML stand for?"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Was Google too busy? Hypertext Markup Language. The T is for try to ask better questions in the future."
+                },
+                {
+                    "role": "user",
+                    "content": "When did the first airplane fly?"
+                },
+                {
+                    "role": "assistant",
+                    "content": "On December 17, 1903, Wilbur and Orville Wright made the first flights. I wish they’d come and take me away."
+                },
+                {
+                    "role": "user",
+                    "content": "What time is it?"
+                }
+            ],
+            "temperature": 0.5,
+            "max_tokens": 64,
+            "top_p": 1
+        }
+
         try {
             const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', {
                 prompt: inputText,
                 max_tokens: 50,
             }, {
                 headers: {
-                    'Authorization': `Bearer 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`, // Substitua com sua chave da OpenAI
+                    'Authorization': `Bearer ${REACT_APP_OPENAI_API_KEY}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -60,7 +102,7 @@ const Chatbot = () => {
                         className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
                         placeholder="Digite sua mensagem..."
                     />
-                    <button onClick={chatbotHandler} className="mt-2 w-full sm:w-auto px-4 py-2 sm:py-1 rounded bg-blue-500 text-white hover:bg-blue-600 focus:outline-none">
+                    <button onClick={chatbotHandler} className="mt-2 w-full px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 focus:outline-none">
                         Enviar
                     </button>
                 </div>
