@@ -17,14 +17,14 @@ function Ativos() {
         ));
     };
 
-    const rows = Array.from({ length: 4 }, () => (
+    const rows = Array.from({ length: 5 }, () => (
         <tr key={uuidv4()}>
             {generateRandomNumbers(keysCells)}
         </tr>
     ));
 
     return (
-        <div className="wrapper">
+        <div className="wrapper my-3">
             <table>
                 <caption>Gestão de Ativos</caption>
                 <thead>
